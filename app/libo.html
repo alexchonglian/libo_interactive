@@ -1,0 +1,45 @@
+<!doctype html>
+<!-- 
+	libo.html
+	libo browser document
+-->
+<html>
+<head>
+	<!-- ie9+ rendering support for latest standards -->
+
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Lib Interactive</title>
+
+	<!-- third-party stylesheets -->
+
+	<!-- our sheets -->
+	<link rel="stylesheet" type="text/css" href="css/libo.css">
+	<link rel="stylesheet" type="text/css" href="css/libo.chat.css">
+	<link rel="stylesheet" type="text/css" href="css/libo.shell.css">
+
+	<!-- 3rd party javascript -->
+	<script type="text/javascript" src="js/jq/jquery.js"></script>
+	<script type="text/javascript" src="js/jq/jquery.uriAnchor.js"></script>
+
+	<!-- our javascript -->
+	<script type="text/javascript" src="js/libo.js"></script>
+	<script type="text/javascript" src="js/libo.util.js"></script>
+	<script type="text/javascript" src="js/libo.model.js"></script>
+	<script type="text/javascript" src="js/libo.shell.js"></script>
+	<script type="text/javascript" src="js/libo.head.js"></script>
+	<script type="text/javascript" src="js/libo.panel.js"></script>
+	<script type="text/javascript" src="js/libo.bookreader.js"></script>
+	<script type="text/javascript">
+		$(function() { 
+			// housekeeping here ...
+			// fi we need to configure root module
+			// we would invoke libo.setup first
+			libo.run( $('#libo') );
+		});
+	</script>
+</head>
+<body>
+	<div id="libo"></div>
+</body>
+</html>
