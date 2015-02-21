@@ -4,33 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="css/libo.css">
 	<link rel="stylesheet" type="text/css" href="css/libo.shell.css">
 	<script type="text/javascript" src="js/jq/jquery.js"></script>
-	<script type="text/javascript">
-		$(function() {
-			$('.head-acct-dropdown').hide();
-			$('.head-acct-user').mouseenter(function(){
-				$('.head-acct-dropdown').show();
-			});
-			$('.head-acct-msg').mouseenter(function(){
-				$('.head-acct-dropdown').show();
-			});
-			$('.head-acct').mouseleave(function(){
-				$('.head-acct-dropdown').hide();
-			});
-
-			$('.nav-btn-discover').click(function() {
-				$('.libo-shell-bookreader').css({
-					background: 'red',
-					opacity: 0.5,
-					position: 'absolute', 
-					top: 0, 
-					bottom:0, 
-					left: 0, 
-					right: 0
-				});
-			})
-
-		})
-	</script>
+	<script type="text/javascript" src="js/libo.mock.js"></script>
 </head>
 <body>
 	<div id="libo">
@@ -62,7 +36,7 @@
 
 				<div class="libo-shell-nav">
 					<div class="nav-btn nav-btn-profile">profile</div>
-					<div class="nav-btn nav-btn-recent">RECENT</div>
+					<div class="nav-btn nav-btn-recent">recent</div>
 					<div class="nav-btn nav-btn-discover">discover</div>
 					<div class="nav-btn nav-btn-connection">connections</div>
 				</div><!-- libo-shell-nav -->

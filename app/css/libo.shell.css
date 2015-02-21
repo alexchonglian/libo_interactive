@@ -70,9 +70,14 @@
 }
 
 .head-search-box {
-	font-size: 1.2em;
+	height: 32px;
+	width: 200px;
+	font-size: 1em;
+	border-radius: 10px;
+	background: #333;
+	color: #acf;
 }
-	.head-search-box:focus {
+	.head-search-box-expand {
 		width: 300px;
 	}
 
