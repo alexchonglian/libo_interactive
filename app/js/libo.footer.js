@@ -21,7 +21,7 @@ libo.footer = (function() {
 		configMap = {
 			main_html: String()
 			+ '<div class="footer">'
-				+'<div class="footer-left">Copyright Jan 2015</div>'
+				+'<div class="footer-left">Copyright Feb 2015</div>'
 				+'<div class="footer-right">alexchonglian@nyu.edu</div>'
 			+ '</div>'
 

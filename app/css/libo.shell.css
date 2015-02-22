@@ -12,7 +12,7 @@
 
 .libo-shell-top {
 	padding: 10px;
-	height: 118px;
+	height: 108px;
 	background: #7dc;
 	box-shadow: 0 0 10px #333;
 }
@@ -67,7 +67,7 @@
 .header-logo {
 	width: 200px;
 	height: 50px;
-	background: #eee;
+	background: yellow;
 }
 
 .header-search-box {
@@ -75,11 +75,12 @@
 	width: 200px;
 	font-size: 1em;
 	border-radius: 10px;
-	background: #444;
-	color: #acf;
+	background: #5ba;
+	color: #000;
 }
 	.header-search-box:focus {
 		width: 300px;
+		background: #ddd;
 	}
 
 .header-search-go {
@@ -93,13 +94,13 @@
 	margin: 0 6px;
 	width: 100px;
 	height: 36px;
-	padding: 5px;
+	padding: 6px;
 	background: #eee;
 	color:#3bc;
 	border-radius: 18px;
 }
 	.header-acct-btn:hover {
-		background: #333;
+		background: #888;
 		color:#fff;
 	}
 
@@ -109,13 +110,17 @@
 	z-index: 10;
 	position: absolute;
 	top: 48px;
-	left: 15px;
+	right: 15px;
 	border-radius: 6px;
-	box-shadow: 0 5px 5px #666;
+	box-shadow: 0 0 5px #165;
 }
 	.header-acct-dropdown ul li {
 		height: 30px;
 		border-bottom: 1px solid #ddd;
+	}
+	.header-acct-dropdown ul li:hover {
+		background: #888;
+		color: #fff;
 	}
 
 	.header-acct-dropdown ul li:last-child {
@@ -131,7 +136,7 @@
 .libo-shell-nav {
 	margin: 2px auto;
 	padding: 5px;
-	height: 50px;
+	height: 45px;
 	width: 960px;
 }
 
@@ -140,16 +145,16 @@
 .nav-btn {
 	text-align: center;
 	margin: 3px 6px;
-	padding: 6px 12px;
-	height: 36px;
+	padding: 4px 12px;
+	height: 30px;
 	min-width: 100px;
-	border-radius: 18px;
+	border-radius: 15px;
 	display: inline-block;
 	background: #eee;
 	color: #3bc;
 }
 	.nav-btn:hover {
-		background: #333;
+		background: #888;
 		color: #fff;
 	}
 

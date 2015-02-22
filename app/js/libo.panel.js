@@ -38,6 +38,10 @@ libo.panel = (function() {
 		var $container = stateMap.$container;
 		jqueryMap = { 
 			$container : $container,
+			$left: $container.find('.panel-left'),
+			$right: $container.find('.panel-right'),
+			$upper: $container.find('.panel-upper'),
+			$lower: $container.find('.panel-lower')
 		};
 	};
 
@@ -49,6 +53,13 @@ libo.panel = (function() {
 		stateMap.$container = $container;
 		$container.html( configMap.main_html );
 		setJqueryMap();
+
+		setTimeout(function() {
+			jqueryMap.$left.hide();
+			jqueryMap.$right.animate({width: "960px"}, 500);
+			jqueryMap.$right.animate({width: "660px"}, 500, function() {jqueryMap.$left.show()});
+
+		}, 500);
 		return true;
 	}
 

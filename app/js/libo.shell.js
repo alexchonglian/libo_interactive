@@ -17,6 +17,7 @@
 
 
 libo.shell = (function() {
+	"use strict";
 
 	//[[ Module Scope Variables
 	var 
@@ -47,6 +48,7 @@ libo.shell = (function() {
 			$container: undefined,
 			anchor_map: {},
 			count : 0,
+			isLogin: false,
 			resize_idto: undefined
 		},
 
@@ -54,7 +56,8 @@ libo.shell = (function() {
 
 		// hoisted functions
 		copyAnchorMap, setJqueryMap,
-		changeAnchorPart, onHashchange, onResize, testNow, 
+		changeAnchorPart, onHashchange, testNow, 
+		onLoginRequested, onLogoutRequested, onLoginCompleted, onLogoutCompleted,
 		setChatAnchor, run;
 	//Module Scope Variables ]]
 
@@ -156,56 +159,7 @@ libo.shell = (function() {
 	//     differs from existing and is allowed by anchor schema
 	//
 	onHashchange = function( event ) {
-		var 
-			_s_chat_previous, 
-			_s_chat_proposed, 
-			s_chat_proposed,
-			anchor_map_proposed,
-			is_ok = true;
-			anchor_map_previous = copyAnchorMap;
-
-		// attempt to parse anchor
-		try { anchor_map_proposed = $.uriAnchor.makeAnchorMap(); }
-		catch (error) {
-			$.uriAnchor.setAnchor( anchor_map_previous, null, true );
-			return false;
-		}
-		stateMap.anchor_map = anchor_map_proposed;
-
-		// convenience vars
-		_s_chat_previous = anchor_map_previous._s_chat;
-		_s_chat_proposed = anchor_map_proposed._s_chat;
-
-		//[[adjust chat component if chagned
-		if ( ! anchor_map_previous || _s_chat_previous !== _s_chat_proposed ) {
-			s_chat_proposed = anchor_map_proposed.chat;
-			switch ( s_chat_proposed ) {
-				case 'opened':
-					is_ok = libo.chat.setSliderPosition( 'opened' );
-					break;
-				case 'closed':
-					is_ok = libo.chat.setSliderPosition( 'closed' );
-					break;
-				default:
-					libo.chat.setSliderPosition( 'closed' );
-					delete anchor_map_proposed.chat;
-					$.uriAnchor.setAnchor( anchor_map_proposed, null, true );
-			}
-		}
-		//adjust chat component if chagned]]
-
-		// revert anchor is slider change denied
-		if ( !is_ok ) {
-			if ( anchor_map_previous ) {
-				$.uriAnchor.setAnchor( anchor_map_previous, null, true );
-				stateMap.anchor_map = anchor_map_previous;
-			} else {
-				delete anchor_map_proposed.chat;
-				$.uriAnchor.setAnchor( anchor_map_proposed, null, true );
-			}
-		}
-
-		return false;
+		//Do it my way!
 	};
 
 	//Event Handlers ]]
@@ -258,6 +212,23 @@ libo.shell = (function() {
 	//	$(window).bind('hashchange', testNow);
 	//if (stateMap.count === 0) {document.location.href = '#page=1';}
 
+
+	onLoginRequested = function() {
+		var user_name = window.localStorage.libointeractive;
+
+		if (!user_name) {
+			user_name = prompt( 'Please sign-in' );
+			window.localStorage.libointeractive = user_name;
+		}
+		
+		$.gevent.publish('login-completed', [user_name]);
+	};
+
+	onLogoutRequested = function() {
+		delete window.localStorage.libointeractive;
+		$.gevent.publish('logout-completed');
+	}
+
 	run = function( $container ) {
 		// load html and map jquery collections
 		stateMap.$container = $container;
@@ -271,7 +242,9 @@ libo.shell = (function() {
 		libo.footer.run( jqueryMap.$bottom );
 		//libo.reader.run( jqueryMap.$container );
 
-		
+		$.gevent.subscribe($container, 'login-requested', onLoginRequested);
+		$.gevent.subscribe($container, 'logout-requested', onLogoutRequested);
+		onLoginRequested();
 
 	};
 	//Public Methods]]
