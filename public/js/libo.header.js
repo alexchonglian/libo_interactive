@@ -22,7 +22,7 @@ libo.header = (function() {
 		configMap = {
 			main_html: String()
 				+'<div class="libo-shell-header">'
-					+'<div class="header-logo">HOME</div>'
+					+'<div class="header-logo">logo</div>'
 					+'<div class="header-search">'
 						+'<input class="header-search-box" type="text" />'
 						//+'<input class="header-search-go" type="button" />'
