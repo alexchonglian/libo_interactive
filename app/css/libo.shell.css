@@ -7,30 +7,32 @@
 
 
 /* styling 4 larger components */
-/* top, panel, footer, modal */
+/* top, panel, bottom, modal */
 
 
 .libo-shell-top {
 	padding: 10px;
-	height: 120px;
-	background: red;
+	height: 118px;
+	background: #7dc;
+	box-shadow: 0 0 10px #333;
 }
 
 .libo-shell-panel {
-	margin: 0 auto;
+	margin: 10px auto;
 	width: 960px;
-	background: yellow;
+	/*background: yellow;*/
 	border-radius: 5px;
 	min-height: 420px;
 }
 
-.libo-shell-footer {
+.libo-shell-bottom {
 	min-height: 140px;
 	width: 960px;
-	background: #aad;
+	background: #ddd;
 	margin: 0 auto;
 	padding: 15px;
 	border-radius: 10px 10px 0 0;
+	box-shadow: 0 0 10px #333;
 }
 
 .libo-shell-modal {}
@@ -40,109 +42,114 @@
 /* styling each components */
 /* part 1 - top */
 
-.libo-shell-head {
+.libo-shell-header {
 	margin: 0 auto;
 	padding-left: 10px;
 	width: 960px;
-	height: 60px;
-	background: #33f;
+	height: 50px;
 	border-radius: 10px 10px 0 0;
 }
 
-.head-logo, .head-search, .head-acct {
+.header-logo, .header-search, .header-acct {
 	padding: 10px
 }
 
-.head-logo, .head-search {
+.header-logo, .header-search {
 	float: left;
 }
 
-.head-acct {
+.header-acct {
 	position: relative;
 	float: right;
 	text-align: center;
 }
 
-.head-logo {
+.header-logo {
 	width: 200px;
-	height: 60px;
-	background: #3f3;
+	height: 50px;
+	background: #eee;
 }
 
-.head-search-box {
+.header-search-box {
 	height: 32px;
 	width: 200px;
 	font-size: 1em;
 	border-radius: 10px;
-	background: #333;
+	background: #444;
 	color: #acf;
 }
-	.head-search-box-expand {
+	.header-search-box:focus {
 		width: 300px;
 	}
 
-.head-search-go {
+.header-search-go {
 	height: 21px;
 	width: 21px;
 	background: gray;
 }
 
-.head-acct-msg, .head-acct-user {
+.header-acct-btn {
 	display: inline-block;
+	margin: 0 6px;
 	width: 100px;
-	height: 25px;
+	height: 36px;
 	padding: 5px;
-	background: #fff;
-	border-radius: 5px;
+	background: #eee;
+	color:#3bc;
+	border-radius: 18px;
 }
+	.header-acct-btn:hover {
+		background: #333;
+		color:#fff;
+	}
 
-.head-acct-dropdown {
-	width: 200px;
+.header-acct-dropdown {
+	width: 210px;
 	background: #eee;
 	z-index: 10;
 	position: absolute;
-	top: 36px;
-	left: 12px;
-	border-radius: 0 0 5px 5px;
-	box-shadow: 0 5px 5px #333;
+	top: 48px;
+	left: 15px;
+	border-radius: 6px;
+	box-shadow: 0 5px 5px #666;
 }
-	.head-acct-dropdown ul li {
+	.header-acct-dropdown ul li {
 		height: 30px;
 		border-bottom: 1px solid #ddd;
 	}
 
-	.head-acct-dropdown ul li:last-child {
+	.header-acct-dropdown ul li:last-child {
 		border-bottom: 0;
 	}
-	.head-acct-dropdown .dropdown-msg {
+	.header-acct-dropdown .dropdown-msg {
 
 	}
-	.head-acct-dropdown .dropdown-user {
+	.header-acct-dropdown .dropdown-user {
 		
 	}
 
 .libo-shell-nav {
-	margin: 0 auto;
+	margin: 2px auto;
 	padding: 5px;
-	height: 40px;
+	height: 50px;
 	width: 960px;
-	background: #ddd;
 }
 
 .libo-shell-nav {}
 
 .nav-btn {
-	margin: 0 3px;
+	text-align: center;
+	margin: 3px 6px;
 	padding: 6px 12px;
-	height: 30px;
-	border-radius: 4px;
+	height: 36px;
+	min-width: 100px;
+	border-radius: 18px;
 	display: inline-block;
 	background: #eee;
-	color: #39f;
-	box-shadow: 0 0 6px 0 #999;
+	color: #3bc;
 }
 	.nav-btn:hover {
-		background: #666;
+		background: #333;
 		color: #fff;
 	}
 
@@ -162,9 +169,6 @@
 
 
 /* part 2 - panel */
-.libo-shell-panel {
-
-}
 
 .panel-upper {
 	width: 960px;

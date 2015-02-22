@@ -29,11 +29,10 @@ libo.shell = (function() {
 			+'</div><!-- libo-shell-top -->'
 			+'<div class="libo-shell-panel libo-x-group">'
 			+'</div><!-- libo-shell-panel -->	'
-			+'<div class="libo-shell-footer libo-x-group">'
-				+'<div class="footer-left">Copyright Jan 2015</div>'
-				+'<div class="footer-right">alexchonglian@nyu.edu</div>'
+			+'<div class="libo-shell-bottom">'
 			+'</div>'
-			+'<div class="libo-shell-bookreader"></div>'
+			+'<div class="libo-shell-bookreader">'
+			+'</div>'
 				,
 			chat_extend_time: 300,
 			chat_retract_time: 300,
@@ -73,8 +72,9 @@ libo.shell = (function() {
 		var $container = stateMap.$container;
 		jqueryMap = { 
 			$container : $container,
-			$head : $container.find('.libo-shell-top'),
-			$panel : $container.find('.libo-shell-panel')
+			$top : $container.find('.libo-shell-top'),
+			$panel : $container.find('.libo-shell-panel'),
+			$bottom: $container.find('.libo-shell-bottom')
 		};
 	};
 
@@ -266,8 +266,9 @@ libo.shell = (function() {
 
 		
 
-		libo.head.run( jqueryMap.$head );
+		libo.header.run( jqueryMap.$top );
 		libo.panel.run( jqueryMap.$panel );
+		libo.footer.run( jqueryMap.$bottom );
 		//libo.reader.run( jqueryMap.$container );
 
 		

@@ -1,5 +1,5 @@
 /*
- * libo.head.js
+ * libo.header.js
  * Head module for SPA
 ￼*/
 
@@ -16,31 +16,18 @@
 /*global $, libo */
 
 
-libo.head = (function() {
+libo.header = (function() {
 	var 
 		configMap = {
 			main_html: String()
-				+'<div class="libo-shell-head">'
-					+'<div class="head-logo">logo</div>'
-					+'<div class="head-search">'
-						+'<input class="head-search-box" type="text" />'
-						+'<input class="head-search-go" type="button" />'
+				+'<div class="libo-shell-header">'
+					+'<div class="header-logo">LOGO</div>'
+					+'<div class="header-search">'
 					+'</div>'
-					+'<div class="head-acct libo-x-group">'
-						+'<div class="head-acct-msg">msg</div>'
-						+'<div class="head-acct-user">user</div>'
-						+'<div class="head-acct-dropdown">'
-							+'<ul>'
-								+'<li>item1</li><li>item2</li><li>item3</li><li>item4</li>'
-							+'</ul>'
-						+'</div>'
+					+'<div class="header-acct libo-x-group">'
 					+'</div>'
-				+'</div><!-- libo-shell-head -->'
+				+'</div><!-- libo-shell-header -->'
 				+'<div class="libo-shell-nav">'
-					+'<div class="nav-btn nav-btn-profile">profile</div>'
-					+'<div class="nav-btn nav-btn-recent">recent</div>'
-					+'<div class="nav-btn nav-btn-discover">discover</div>'
-					+'<div class="nav-btn nav-btn-connection">connections</div>'
 				+'</div><!-- libo-shell-nav -->'
 
 		},
@@ -59,6 +46,9 @@ libo.head = (function() {
 		var $container = stateMap.$container;
 		jqueryMap = { 
 			$container : $container,
+			$search: $container.find('.header-search'),
+			$acct: $container.find('.header-acct'),
+			$nav: $container.find('.libo-shell-nav')
 		};
 	};
 
@@ -70,6 +60,11 @@ libo.head = (function() {
 		stateMap.$container = $container;
 		$container.html( configMap.main_html );
 		setJqueryMap();
+
+		libo.header.search.run( jqueryMap.$search 	);
+		libo.header.acct.run( 	jqueryMap.$acct 	);
+		libo.header.nav.run( 	jqueryMap.$nav 		);
+
 		return true;
 	}
 
