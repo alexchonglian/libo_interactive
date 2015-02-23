@@ -10,6 +10,7 @@ $(function() {
 		$('.head-acct-dropdown').hide();
 	});
 
+/*
 	$('.nav-btn-discover').click(function() {
 		$('.libo-shell-bookreader').css({
 			background: 'red',
@@ -21,7 +22,7 @@ $(function() {
 			right: 0
 		});
 	})
-
+*/
 	$('.head-search-box').on('focus', function() { 
 		$(this).animate({ width: '300px' }, 300);
 	})

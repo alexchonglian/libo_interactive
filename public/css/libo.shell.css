@@ -11,8 +11,8 @@
 
 
 .libo-shell-top {
-	padding: 10px;
-	height: 108px;
+	padding-top: 3px;
+	height: 90px;
 	background: #7dc;
 	box-shadow: 0 0 10px #333;
 }
@@ -46,12 +46,12 @@
 	margin: 0 auto;
 	padding-left: 10px;
 	width: 960px;
-	height: 50px;
+	height: 42px;
 	border-radius: 10px 10px 0 0;
 }
 
 .header-logo, .header-search, .header-acct {
-	padding: 10px
+	padding: 3px 0 0 6px;
 }
 
 .header-logo, .header-search {
@@ -66,7 +66,7 @@
 
 .header-logo {
 	width: 200px;
-	height: 50px;
+	height: 40px;
 	border: 1px solid #8ed;
 	background: #7dc;
 	border-radius: 5px;
@@ -112,8 +112,8 @@
 	background: #eee;
 	z-index: 10;
 	position: absolute;
-	top: 48px;
-	right: 15px;
+	top: 40px;
+	right: 6px;
 	border-radius: 6px;
 	box-shadow: 0 0 5px #165;
 }
@@ -137,13 +137,12 @@
 	}
 
 .libo-shell-nav {
-	margin: 2px auto;
-	padding: 5px;
-	height: 45px;
+	margin: 0 auto;
+	padding: 3px;
+	height: 42px;
 	width: 960px;
 }
 
-.libo-shell-nav {}
 
 .nav-btn {
 	text-align: center;
@@ -197,16 +196,21 @@
 	min-height: 400px;
 	padding: 10px;
 	float: right;
-	background: orange;
+	font-size: 1.2em;
+	background: white;/* #cce8cf*/
 	z-index: 5;
 	/* overflow-x: auto; */
 }
-
 
 .panel-lower {
 	width: 960px;
 	height: 10px;
 }
+
+
+
+
+
 
 /* part 3 - footer */
 
@@ -219,16 +223,47 @@
 }
 
 
-/* part 4 - modal */
+/* part 4 - reader */
+
+.libo-shell-reader-fullscreen {
+	position: absolute;
+	background: white;
+	top: 0;
+	left: 0;
+	right:0;
+	bottom: 0;
+}
 
 
+.libo-shell-reader-nav {
+	position: fixed;
+	width: 60px;
+	height: 90px;
+	background: #ccc;
+	font-size: 3em;
+	text-align: center;
+}
+	.libo-shell-reader-nav:hover {
+		background: #fff;
+	}
 
+.libo-shell-reader-menushow {
+	left:0;
+	top: 0;
+	border-radius: 0 0 10px 0;
+}
 
+.libo-shell-reader-previous {
+	left: 0;	
+	bottom: 100px;
+	border-radius: 0 10px 10px 0;
+}
 
-
-
-
-
+.libo-shell-reader-next {
+	right: 0;
+	bottom: 100px;
+	border-radius: 10px 0 0 10px;
+}
 
 
 
