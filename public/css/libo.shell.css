@@ -18,7 +18,7 @@
 }
 
 .libo-shell-panel {
-	margin: 10px auto;
+	margin: 20px auto;
 	width: 960px;
 	/*background: yellow;*/
 	border-radius: 5px;
@@ -179,7 +179,7 @@
 
 .panel-upper {
 	width: 960px;
-	height: 30px;
+	height: 40px;
 }
 
 .panel-left {
@@ -197,9 +197,14 @@
 	padding: 10px;
 	float: right;
 	font-size: 1.2em;
-	background: white;/* #cce8cf*/
+	/* background: white;/* #cce8cf*/
 	z-index: 5;
 	/* overflow-x: auto; */
+}
+
+.panel-right-book {
+	background: white;
+	box-shadow: 0 0 10px #444;
 }
 
 .panel-lower {
@@ -214,6 +219,10 @@
 
 /* part 3 - footer */
 
+.libo-shell-bottom {
+	background: #aaa;
+}
+
 .footer-left {
 	float: left;
 }
@@ -221,6 +230,15 @@
 .footer-right {
 	float: right;
 }
+
+
+
+
+
+
+
+
+
 
 
 /* part 4 - reader */
@@ -238,10 +256,11 @@
 .libo-shell-reader-nav {
 	position: fixed;
 	width: 60px;
-	height: 90px;
+	height: 60px;
 	background: #ccc;
 	font-size: 3em;
 	text-align: center;
+	z-index: 5;
 }
 	.libo-shell-reader-nav:hover {
 		background: #fff;
@@ -255,18 +274,42 @@
 
 .libo-shell-reader-previous {
 	left: 0;	
-	bottom: 100px;
+	bottom: 0px;
 	border-radius: 0 10px 10px 0;
 }
 
 .libo-shell-reader-next {
 	right: 0;
-	bottom: 100px;
+	bottom: 0px;
 	border-radius: 10px 0 0 10px;
 }
 
+.libo-shell-reader-menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 360px;
+	padding: 60px 15px;
+	overflow-y: auto;
+	background: #fff;
+	border-radius: 0 0 10px 0;
+	box-shadow: 0 0 10px 0 #444;
+}
+	.libo-shell-reader-menu h3 {
+		color: #aaa;
+	}
+	.libo-shell-reader-menu p {
+		color: #aaa;
+		text-indent: 20;
+	}
 
-
+	.libo-shell-reader-menu .released {
+		color: black;
+	}
+	.libo-shell-reader-menu .released:hover {
+		background: #ddd;
+	}
 
 
 

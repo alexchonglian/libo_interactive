@@ -29,4 +29,7 @@ $(function() {
 	$('.head-search-box').on('blur', function() {
 		$(this).animate({ width: '200px' }, 200);
 	})
+
+
+
 })
