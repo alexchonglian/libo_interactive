@@ -190,6 +190,9 @@
 	background: purple;
 	z-index: 5;	
 }
+	.panel-left .user-summary {
+		
+	}
 
 .panel-right {
 	width: 660px;
@@ -197,7 +200,7 @@
 	padding: 10px;
 	float: right;
 	font-size: 1.2em;
-	/* background: white;/* #cce8cf*/
+	background: orange;/* #cce8cf*/
 	z-index: 5;
 	/* overflow-x: auto; */
 }
@@ -209,8 +212,9 @@
 
 .panel-lower {
 	width: 960px;
-	height: 10px;
+	height: 0px;
 }
+
 
 
 
@@ -290,7 +294,7 @@
 	left: 0;
 	bottom: 0;
 	width: 360px;
-	padding: 60px 15px;
+	padding: 64px 15px;
 	overflow-y: auto;
 	background: #fff;
 	border-radius: 0 0 10px 0;
