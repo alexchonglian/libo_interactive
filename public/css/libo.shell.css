@@ -14,7 +14,7 @@
 	padding-top: 3px;
 	height: 90px;
 	background: #7dc;
-	box-shadow: 0 0 10px #333;
+	box-shadow: 0 0 10px #444;
 }
 
 .libo-shell-panel {
@@ -152,6 +152,7 @@
 	min-width: 100px;
 	border-radius: 15px;
 	display: inline-block;
+	/*background-image: linear-gradient(#eee, #bbb);*/
 	background: #eee;
 	color: #3bc;
 }
@@ -187,7 +188,7 @@
 	min-height: 400px;
 	padding: 10px;
 	float: left;
-	background: purple;
+	/*background: #fdf;*/
 	z-index: 5;	
 }
 	.panel-left .user-summary {
@@ -200,7 +201,7 @@
 	padding: 10px;
 	float: right;
 	font-size: 1.2em;
-	background: orange;/* #cce8cf*/
+	/*background: #ffd;/* #cce8cf*/
 	z-index: 5;
 	/* overflow-x: auto; */
 }
@@ -216,8 +217,36 @@
 }
 
 
+	/* profile */
+	.user-list {
+		padding: 10px 0 5px 10px;
+		background: #fff;
+		margin-bottom: 20px;
+		box-shadow: 0 0 5px #444;
+	}
+	
+	.user-book-list h4 a {
+		color: #888;
+	}
+
+	.user-list-horiz {
+		padding: 10px 0 10px 3px;
+	}
+
+	.user-summary {
+		height: 188px;
+	}
+
+	/* book */
+	.subject-list {
+		padding: 10px 0 5px 10px;
+		background: #fff;
+		margin-bottom: 20px;
+		box-shadow: 0 0 5px #444;
+	}
 
 
+	/* search result */
 
 
 
