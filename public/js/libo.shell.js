@@ -57,6 +57,8 @@ libo.shell = (function() {
 		// hoisted functions
 		copyAnchorMap, setJqueryMap,
 		changeAnchorPart, onHashchange, testNow, 
+		changeHashOf, 
+		changeHashOfProfile, changeHashOfRecent, changeHashOfDiscover, changeHashOfConnection,
 		onLoginRequested, onLogoutRequested, onLoginCompleted, onLogoutCompleted,
 		setChatAnchor, run;
 	//Module Scope Variables ]]
@@ -159,8 +161,22 @@ libo.shell = (function() {
 	//     differs from existing and is allowed by anchor schema
 	//
 	onHashchange = function( event ) {
-		//Do it my way!
+		//do it my way :)
 	};
+
+	changeHashOf = function(location) {
+		return function(parameter_map_str) {
+			return window.location.href = '#!' + location + parameter_map;
+		}
+	};
+
+	changeHashOfProfile		= changeHashOf('profile');
+
+	changeHashOfRecent 		= changeHashOf('recent');
+
+	changeHashOfDiscover	= changeHashOf('discover');
+
+	changeHashOfConnection 	= changeHashOf('connection');
 
 	//Event Handlers ]]
 

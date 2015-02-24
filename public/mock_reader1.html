@@ -1,0 +1,232 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/libo.css">
+	<link rel="stylesheet" type="text/css" href="css/libo.shell.css">
+	<script type="text/javascript" src="js/jq/jquery.js"></script>
+	<script type="text/javascript">
+
+
+
+	$(function() {
+		$('.panel-left').hide();
+		$('.panel-right').css({width: '960px'});
+		$('.panel-right').on('click', function() {
+			$('.libo-shell-reader-menu').slideUp('fast');
+		});
+		$('.libo-shell-reader-menushow').on('click', function() {
+			//$('.panel-right').toggle({backgroud: '#444'});
+			$('.libo-shell-reader-menu').slideToggle('fast');
+		});
+
+		var panel = $('.panel-right-book');
+		var loc = 0;
+		var locs = ['1.1','1.2','1.3','1.4','1.5','2.1','2.2','2.3','2.4','2.5','2.6','2.7'];
+
+		function loadContent(location) {
+			var loc_split = location.split('.'),
+				chapter = loc_split[0],
+				section = loc_split[1]
+			;
+			$.get('http://localhost:3000/read/chp_'+chapter+'/sec_'+section, function(data) {
+				console.log('ok');
+				//console.log(data);
+				panel.html(data['data']);
+			});
+		}
+
+		function nextSection() {
+			if (loc<locs.length) {loc += 1;}
+			loadContent(locs[loc]);
+		}
+
+		function previouSection() {
+			if (loc>0) {loc += 1;}
+			loadContent(locs[loc]);
+		}
+
+
+		$('.libo-shell-reader-previous').on('click', function() {previousSection();});
+		$('.libo-shell-reader-next').on('click', function() {nextSection();});
+
+		$('.libo-shell-reader-menu .released').on('click', function() {
+			var loc_str = $(this).attr('data-id');
+			loc = locs.indexOf(loc_str);
+			loadContent(loc_str);
+			$('.libo-shell-reader-menu').slideToggle('fast');
+		});
+
+		loadContent('1.1');
+
+		//setTimeout(function() {loadContent('1', '2');}, 1000);
+
+
+		
+	})
+
+
+
+	</script>
+</head>
+<body>
+	<div id="libo">
+			<!-- 
+			head nav panel footer modal
+			-->
+			<div class="libo-shell-top">
+
+				<div class="libo-shell-header">
+					<div class="header-logo">logo</div>
+					<div class="header-search">
+						<input class="header-search-box" type="text" />
+					</div>
+
+					<div class="header-acct libo-x-group">
+						<div class="header-acct-btn header-acct-msg">msg</div>
+						<div class="header-acct-btn header-acct-user">user</div>
+					</div>
+				</div><!-- libo-shell-header -->
+
+				<div class="libo-shell-nav">
+					<div class="nav-btn nav-btn-profile">profile</div>
+					<div class="nav-btn nav-btn-recent">recent</div>
+					<div class="nav-btn nav-btn-discover">discover</div>
+					<div class="nav-btn nav-btn-connection">connections</div>
+				</div><!-- libo-shell-nav -->
+
+			</div><!-- libo-shell-top -->
+
+			
+
+
+			<div class="libo-shell-panel libo-x-group">
+				<div class="panel-upper"><h3>Let Over Lambda - 50 years of Lisp</h3></div>
+				<div class="panel-left libo-x-textwrap" style="display:none">sdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsd
+				sdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsd
+				sdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsd
+				sdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsd					sdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsd
+				sdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsd
+				sdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsdsdfsdfsdfsfsd
+				</div>
+
+				<div class="panel-right libo-x-textwrap" style="">
+<div class="panel-right-book" style="padding: 20px">
+</div>
+
+				</div>
+				<div class="panel-lower"></div>
+			</div><!-- libo-shell-main -->	
+
+
+			<div class="libo-shell-bottom">
+				<div class="libo-shell-footer libo-x-group">
+					<div class="footer-left">copyright Jan 2015</div>
+					<div class="footer-right">alexchonglian@nyu.edu</div>
+				</div>
+			</div>
+			<div class="libo-shell-reader" >
+				<div class="libo-shell-reader-nav libo-shell-reader-menushow"> &equiv; </div>
+				<div class="libo-shell-reader-nav libo-shell-reader-previous"> &lt; </div>
+				<div class="libo-shell-reader-nav libo-shell-reader-next"> &gt; </div>
+				<div class="libo-shell-reader-menu" style="display:none">
+					<h3 class="released">Introduction</h3>
+					<p data-id="1.1" class="released">Macros</p>
+					<p data-id="1.2" class="released">U-Language</p>
+					<p data-id="1.3" class="released">The Lisp Utility</p>
+					<p data-id="1.4" class="released">License</p>
+					<p data-id="1.5" class="released">Thanks</p>
+
+					<h3 class="released">Closures</h3>
+					<p data-id="2.1" class="released">Closure-Oriented Programming</p>
+					<p data-id="2.2" class="released">Environments and Extent</p>
+					<p data-id="2.3" class="released">Lexical and Dynamic Scope</p>
+					<p data-id="2.4" class="released">Let It Be Lambda</p>
+					<p data-id="2.5" class="released">Let Over Lambda</p>
+					<p data-id="2.6" class="released">Lambda Over Let Over Lambda</p>
+					<p data-id="2.7" class="released">Let Over Lambda Over Let Over Lambda</p>
+
+					<h3 class="released">Macro Basics</h3>
+					<p class="released">Iterative Development</p>
+					<p class="released">Domain Specific Languages</p>
+					<p class="released">Control Structures</p>
+					<p class="released">Free Variables</p>
+					<p class="released">Unwanted Capture</p>
+					<p class="released">Once Only</p>
+					<p class="released">Duality of Syntax</p>
+
+					<h3 class="released">Read Macros</h3>
+					<p class="released">Run-Time at Read-Time</p>
+					<p class="released">Backquote</p>
+					<p class="released">Reading Strings</p>
+					<p class="released">CL-PPCRE</p>
+					<p class="released">Cyclic Expressions</p>
+					<p class="released">Reader Security</p>
+
+					<h3 class="released">Programs That Program</h3>
+					<p class="released">Lisp Is Not Functional</p>
+					<p class="released">Top-Down Programming</p>
+					<p class="released">Implicit Contexts</p>
+					<p class="released">Code-Walking with Macrolet</p>
+					<p class="released">Recursive Expansions</p>
+					<p class="released">Recursive Solutions</p>
+					<p class="released">Dlambda</p>
+
+					<h3 class="released">Anaphoric Macros</h3>
+					<p class="released">More Phors?</p>
+					<p class="released">Sharp-Backquote</p>
+					<p class="released">Alet and Finite State Machines</p>
+					<p class="released">Indirection Chains</p>
+					<p class="released">Hotpatching Closures</p>
+					<p class="released">Sub-Lexical Scope</p>
+					<p class="released">Pandoric Macros</p>
+
+					<h3>Macro Efficiency Topics</h3>
+					<p>Lisp Is Fast</p>
+					<p>Macros Make Lisp Fast</p>
+					<p>Getting To Know Your Disassembler</p>
+					<p>Pointer Scope</p>
+					<p>Tlists and Cons Pools</p>
+					<p>Sorting Networks</p>
+					<p>Writing and Benchmarking Compilers</p>
+
+					<h3>Lisp Moving Forth Moving Lisp</h3>
+					<p>Weird By Design</p>
+					<p>Cons Threaded Code</p>
+					<p>Duality of Syntax, Defined</p>
+					<p>Going Forth</p>
+					<p>Going Forther</p>
+					<p>Going Lisp</p>
+
+					<h3>Appendices</h3>
+
+					<h3>Languages to Learn</h3>
+					<p>Road to Lisp</p>
+					<p>C and Perl</p>
+					<p>Lisp Incubators</p>
+
+					<h3>Languages to Avoid</h3>
+					<p>Opinion</p>
+					<p>Blub Central</p>
+					<p>Niche Blub</p>
+
+					<h3>Implementations</h3>
+					<p>CMUCL/SBCL</p>
+					<p>CLISP</p>
+					<p>Others</p>
+
+					<h3>Lisp Editors</h3>
+					<p>emacs</p>
+					<p>vi</p>
+					<p>References</p>
+
+					<p>References by Author</p>
+
+					<p>Index</p>
+
+				</div>
+			</div>
+
+	</div><!-- libo -->
+
+</body>
+</html>
